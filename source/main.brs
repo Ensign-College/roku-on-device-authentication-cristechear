@@ -15,6 +15,13 @@ sub Main()
     '     publisherRefreshToken: "MSEFAJ7A54SE3LBE",
     '     publisherEndPoint: "sample.com/endpoint/1234",
     ' }
+    sendAddress = CreateObject("roSocketAddress")
+    sendAddress.SetAddress("dev.stedi.me:54321")
+    socket = CreateObject("roStreamSocket")
+    socket.setSendToAddress(sendAddress)
+    If socket.Connect()
+        Print "Connected Successfully"
+    End If
 
     while(true)
         msg = wait(0, m.port)
